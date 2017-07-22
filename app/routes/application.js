@@ -1,5 +1,4 @@
 import Ember from 'ember';
-import config from './config/environment';
 
 var blackDog = { title: 'Black Dog', band: 'Led Zeppelin', rating: 3
 };
@@ -11,14 +10,6 @@ var pretender = {
 };
 var songs = [blackDog, yellowLedbetter, pretender];
 
-const Router = Ember.Router.extend({
-  location: config.locationType,
-  rootURL: config.rootURL,
+export default Ember.Route.extend({
   model: () => songs
 });
-
-Router.map(function() {
-  this.route('my');
-});
-
-export default Router;
