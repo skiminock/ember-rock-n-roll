@@ -1,9 +1,20 @@
 {{!-- welcome-page --}}
-APPLICATION
-<ul>
-  {{#each model as |song|}}
-    <li>{{song.title}} by {{song.band}} ({{song.rating}})</li>
-  {{/each}}
-</ul>
 
-{{outlet}}
+<div class="container">
+  <div class="row list-wrapper push-down-m">
+    <div class="col-md-6">
+      <div class="page-header">
+        <h1>Rock &amp; Roll<small> with Ember.js</small></h1>
+      </div>
+      <div class="row">
+        <ul class="nav navbar-nav">
+          <li>{{link-to "Bands" "bands"}}</li>
+          <li>{{link-to "Songs" "songs"}}</li>
+        </ul>
+      </div>
+      <div class="row">
+        {{outlet}}
+      </div>
+    </div>
+  </div>
+</div>

@@ -18,7 +18,11 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('my');
+  // this.route('my');
+  this.route('bands', function() {
+    this.route('songs');
+  });
+  this.route('songs');
 });
 
 export default Router;
