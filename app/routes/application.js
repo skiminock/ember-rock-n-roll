@@ -11,9 +11,4 @@ var pretender = {
 var songs = [blackDog, yellowLedbetter, pretender];
 
 export default Ember.Route.extend({
-  actions: {
-    createBand: function() {
-      console.log('createBand - application route');
-    }
-  }
 });
