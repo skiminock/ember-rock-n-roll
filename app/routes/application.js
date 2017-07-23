@@ -11,5 +11,4 @@ var pretender = {
 var songs = [blackDog, yellowLedbetter, pretender];
 
 export default Ember.Route.extend({
-  model: () => songs
 });
