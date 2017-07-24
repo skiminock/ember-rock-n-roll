@@ -4,7 +4,9 @@
   <div class="row list-wrapper push-down-m">
     <div class="col-md-6">
       <div class="page-header">
-        <h1>Rock &amp; Roll<small> with Ember.js</small></h1>
+        {{#link-to 'index'}}
+          <h1>Rock & Roll<small> with Ember.js</small></h1>
+        {{/link-to}}
       </div>
       <div class="row">
         {{outlet}}

@@ -34,9 +34,19 @@ var pretender = Song.create({
   rating: 2
 });
 
-var ledZeppelin = Band.create({ name: 'Led Zeppelin', songs: [blackDog] });
-var pearlJam = Band.create({ name: 'Pearl Jam', songs: [daughter, yellowLedbetter] });
-var fooFighters = Band.create({ name: 'Foo Fighters', songs: [pretender] });
+var ledZeppelin = Band.create({
+  name: 'Led Zeppelin',
+  songs: [blackDog]
+});
+var pearlJam = Band.create({
+  name: 'Pearl Jam',
+  description: 'Pearl Jam is an American rock band, formed in Seattle, Washington in 1990.',
+  songs: [daughter, yellowLedbetter]
+});
+var fooFighters = Band.create({
+  name: 'Foo Fighters',
+  songs: [pretender]
+});
 
 var bands = BandsCollection.create();
 bands.get('content').pushObjects([ledZeppelin, pearlJam, fooFighters]);
@@ -45,9 +55,15 @@ export default Ember.Route.extend({
   model: function () {
     return bands;
   },
+  afterModel: function(model) {
+    var bands = model.get('content');
+
+    if (bands.length === 1) {
+      this.transitionTo('bands.band', bands.get('firstObject'));
+    }
+  },
   actions: {
     createBand: function() {
-      console.log('createBand - bands route');
       const controller = this.get('controller');
 
       const name = controller.get('name');
@@ -57,6 +73,9 @@ export default Ember.Route.extend({
       controller.set('name', '');
 
       this.transitionTo('bands.band.songs', band);
-    }
+    },
+    didTransition: function() {
+      document.title = 'Bands - Rock & Roll';
+    },
   }
 });
