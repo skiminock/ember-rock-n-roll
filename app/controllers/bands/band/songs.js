@@ -15,7 +15,12 @@ export default Ember.Controller.extend({
       var song = params.item,
         rating = params.rating;
 
+      if (song.get('rating') === rating) {
+        rating = 0;
+      }
+
       song.set('rating', rating);
+      song.save();
     }
   }
 });

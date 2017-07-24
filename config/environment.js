@@ -6,6 +6,7 @@ module.exports = function(environment) {
     modulePrefix: 'rarwe',
     environment,
     rootURL: '/',
+    apiHost: 'http://json-api.rockandrollwithemberjs.com',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
@@ -33,6 +34,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'test') {
+    ENV.apiHost = '';
     // Testem prefers this...
     ENV.locationType = 'none';
 
